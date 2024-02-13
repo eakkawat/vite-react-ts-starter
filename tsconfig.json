@@ -24,6 +24,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", ".eslintrc.cjs"],
+  "include": ["src", ".eslintrc.cjs", "./bin/install.mjs"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
