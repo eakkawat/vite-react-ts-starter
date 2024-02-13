@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
 
+import inquirer from 'inquirer';
 import { execSync } from 'child_process';
 
 const runCommand = (command) => {
@@ -16,6 +17,29 @@ const runCommand = (command) => {
 
 const repoName = process.argv[2];
 const gitCheckoutCommand = `git clone --depth 1 git@github.com:eakkawat/vite-react-ts-starter.git ${repoName}`;
+
+// Ask user some questions for project configuration
+const questions = [
+  {
+    type: 'confirm',
+    name: 'storybook',
+    message: 'Do you want to install storybook (recommended)',
+    default: true,
+  },
+  {
+    type: 'confirm',
+    name: 'tailwindCSS',
+    message: 'Do you want to install tailwindCSS',
+    default: false,
+  },
+];
+
+inquirer.prompt(questions).then((answers) => {
+  const { tailwindCSS, storybook } = answers;
+  if (storybook && !tailwindCSS) console.info('git clone branch storybook');
+  if (tailwindCSS && !storybook) console.info('git clone branch tailwindcss');
+  if (storybook && tailwindCSS) console.info('git clone storybook + tailwind');
+});
 
 const installDependenciesCommand = `cd ${repoName} && pnpm install`;
 
