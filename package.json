@@ -1,6 +1,6 @@
 {
   "name": "@xgawatt/vite-react-ts-starter",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "module",
   "bin": {
     "@xgawatt/vite-react-ts-starter": "./bin/install.mjs"
@@ -17,6 +17,7 @@
     "url": "https://github.com/eakkawat/vite-react-ts-starter"
   },
   "dependencies": {
+    "inquirer": "^9.2.14",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.0"
@@ -37,7 +38,6 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.3.0",
     "husky": "^8.0.0",
-    "inquirer": "^9.2.14",
     "prettier": "^3.2.5",
     "typescript": "^5.2.2",
     "vite": "^5.1.0",
