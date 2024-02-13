@@ -1,6 +1,6 @@
 {
   "name": "@xgawatt/vite-react-ts-starter",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "type": "module",
   "bin": {
     "@xgawatt/vite-react-ts-starter": "./bin/install.mjs"

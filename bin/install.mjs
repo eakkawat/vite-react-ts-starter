@@ -42,24 +42,24 @@ inquirer.prompt(questions).then((answers) => {
     gitCheckoutCommand = `git clone --depth 1 --branch tailwindcss git@github.com:eakkawat/vite-react-ts-starter.git ${repoName}`;
   if (storybook && tailwindCSS)
     gitCheckoutCommand = `git clone --depth 1 --branch storybook-tailwind git@github.com:eakkawat/vite-react-ts-starter.git ${repoName}`;
-});
 
-const installDependenciesCommand = `cd ${repoName} && pnpm install`;
+  // Execute command
+  console.info(`Cloning the repository named ${repoName}`);
+  const checkOut = runCommand(gitCheckoutCommand);
+  if (!checkOut) process.exit(-1);
 
-console.info(`Cloning the repository named ${repoName}`);
-const checkOut = runCommand(gitCheckoutCommand);
-if (!checkOut) process.exit(-1);
+  const installDependenciesCommand = `cd ${repoName} && pnpm install`;
+  console.info(`Installing dependencies for ${repoName}`);
+  const installDeps = runCommand(installDependenciesCommand);
+  if (!installDeps) {
+    console.error(
+      'Please check that you have pnpm installed as we use pnpm to install packages: npm ls -g'
+    );
+    process.exit(-1);
+  }
 
-console.info(`Installing dependencies for ${repoName}`);
-const installDeps = runCommand(installDependenciesCommand);
-if (!installDeps) {
-  console.error(
-    'Please check that you have pnpm installed as we use pnpm to install packages: npm ls -g'
+  console.info(
+    'Congratulations! You are ready. Follow the following command to start'
   );
-  process.exit(-1);
-}
-
-console.info(
-  'Congratulations! You are ready. Follow the following command to start'
-);
-console.info(`cd ${repoName} && pnpm run dev`);
+  console.info(`cd ${repoName} && pnpm run dev`);
+});
