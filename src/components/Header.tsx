@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 
 function Header() {
   return (
-    <header>
+    <header className="container mx-auto px-4">
       <nav>
         <ul>
           <li>
