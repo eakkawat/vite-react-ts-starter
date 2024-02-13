@@ -1,11 +1,15 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Header from '@/components/Header';
+import Header from './components/Header/Header';
 import Home from '@/pages/Home';
 
 function App() {
   return (
     <>
-      <Header />
+      <Header
+        onLogin={() => {}}
+        onLogout={() => {}}
+        onCreateAccount={() => {}}
+      />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
