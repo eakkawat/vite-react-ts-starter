@@ -11,7 +11,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:prettier/recommended',
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs', 'node_modules'],
+  ignorePatterns: ['dist', '.eslintrc.cjs', 'node_modules', 'vite.config.ts'],
   overrides: [],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -23,5 +23,13 @@ module.exports = {
   rules: {
     'react/react-in-jsx-scope': 0,
     'react/jsx-uses-react': 0,
+    'import/extensions': ['error','never',{
+      'ts': 'never',
+      'tsx': 'never',
+      'json': 'always',
+      'svg': 'always',
+      'png': 'always',
+      'jpg':'always'
+    }]
   },
 };
