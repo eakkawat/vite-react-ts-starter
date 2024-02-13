@@ -1,0 +1,22 @@
+{
+  "editor.formatOnSave": true,
+  // Format other files with prettier
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // Format ts,tsx,js,jsx with eslint
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always",
+    "source.organizImports": "always"
+  }
+}
