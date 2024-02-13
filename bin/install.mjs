@@ -16,7 +16,7 @@ const runCommand = (command) => {
 };
 
 const repoName = process.argv[2];
-const gitCheckoutCommand = `git clone --depth 1 git@github.com:eakkawat/vite-react-ts-starter.git ${repoName}`;
+let gitCheckoutCommand = `git clone --depth 1 git@github.com:eakkawat/vite-react-ts-starter.git ${repoName}`;
 
 // Ask user some questions for project configuration
 const questions = [
@@ -36,9 +36,12 @@ const questions = [
 
 inquirer.prompt(questions).then((answers) => {
   const { tailwindCSS, storybook } = answers;
-  if (storybook && !tailwindCSS) console.info('git clone branch storybook');
-  if (tailwindCSS && !storybook) console.info('git clone branch tailwindcss');
-  if (storybook && tailwindCSS) console.info('git clone storybook + tailwind');
+  if (storybook && !tailwindCSS)
+    gitCheckoutCommand = `git clone --depth 1 --branch storybook git@github.com:eakkawat/vite-react-ts-starter.git ${repoName}`;
+  if (tailwindCSS && !storybook)
+    gitCheckoutCommand = `git clone --depth 1 --branch tailwindcss git@github.com:eakkawat/vite-react-ts-starter.git ${repoName}`;
+  if (storybook && tailwindCSS)
+    gitCheckoutCommand = `git clone --depth 1 --branch storybook-tailwind git@github.com:eakkawat/vite-react-ts-starter.git ${repoName}`;
 });
 
 const installDependenciesCommand = `cd ${repoName} && pnpm install`;
