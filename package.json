@@ -10,16 +10,24 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "gen-lib": "hygen lib new",
+    "gen-type": "hygen types new",
+    "gen-util": "hygen utils new",
+    "gen-component": "hygen components new",
+    "gen-feature": "hygen features new"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/eakkawat/vite-react-ts-starter"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.20.5",
+    "axios": "^1.6.7",
     "inquirer": "^9.2.14",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.50.1",
     "react-router-dom": "^6.22.0"
   },
   "devDependencies": {
@@ -38,6 +46,7 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.3.0",
     "husky": "^8.0.0",
+    "hygen": "^6.2.11",
     "prettier": "^3.2.5",
     "typescript": "^5.2.2",
     "vite": "^5.1.0",
